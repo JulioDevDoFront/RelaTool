@@ -429,188 +429,112 @@ function generateRelatory()
 
 }
 
-function renderRelatory(text)
+function renderRelatory()
 {
-    var initButton = document.querySelector(".init-button")
-    var container = document.createElement("div")
-    var header = document.createElement("div")
-        var exitButton = document.createElement("button")
-        var titleContainer = document.createElement("div")
-    var backdrop = document.createElement("div")
-    var contentSection = document.createElement("div")
-    var copyButton = document.createElement("button")
-    var copyButtonContainer = document.createElement("div")
-
-    var relatoryCssClass = document.querySelector(".relatory")
-    container.classList.add("relatory")
-    backdrop.classList.add("relatory")
-
-
-
-    // CSS
-    // container
-    container.style.position = "absolute"
-    container.style.width = "600px"
-    container.style.height = "1000px"
-    container.style.display = "fixed"
-    container.style.alignItems = "center"
-    container.style.justifyContent = "center"
-    container.style.borderRadius = "10px"
-    container.style.top = "50%"
-    container.style.left = "50%"
-    container.style.transform = "translate(-50%, -50%)"
-    container.style.zIndex = "999999"
-    container.style.backgroundColor = "white"
-    container.style.fontSize = "1.5rem"
-
-    // content area
-    contentSection.style.width = "100%"
-    contentSection.style.height = "85%"
-    contentSection.style.wordBreak = "break-all"
-    contentSection.style.overflowY = "auto"
-    contentSection.style.padding = "0 35px"
-
-
-    // backdrop
-    backdrop.style.position = "absolute"
-    backdrop.style.width = "100vw"
-    backdrop.style.height = "100vh"
-    backdrop.style.backgroundColor = "rgba(0,0,0, 0.5)"
-    backdrop.style.top = "0px"
-    backdrop.style.left = "0px"
-    backdrop.style.zIndex = "1000"
-
-    // header
-    header.style.width = "100%"
-    header.style.height = "8%"
-    header.style.backgroundColor = "whitesmoke"
-    header.style.display = "flex"
-    header.style.borderRadius = "10px"
-    header.style.fontSize = "1.9rem"
-    header.style.fontWeight = "600"
-    header.style.alignItems = "center"
-    header.style.justifyContent = "space-between"
-
-    // copy button
-    copyButton.style.width = "50%"
-    copyButton.style.height = "60%"
-    copyButton.style.backgroundColor = "#198746"
-    copyButton.style.borderRadius = "5px"
-    copyButton.style.border = "none"
-    copyButton.style.color = "white"
-
-    // copy button container 
-    copyButtonContainer.style.width = "100%"
-    copyButtonContainer.style.height = "7%"
-    copyButtonContainer.style.display = "flex"
-    copyButtonContainer.style.justifyContent = "center"
-    copyButtonContainer.style.alignItems = "center"
-
-
-    // title container 
-    titleContainer.style.width = "100%"
-    titleContainer.style.height = "100%"
-    titleContainer.style.display = "flex"
-    titleContainer.style.alignItems = "center"
-    titleContainer.style.justifyContent = "center"
-
-
-    // config button
-    exitButton.style.width = "80px"
-    exitButton.style.height = "50px"
-    exitButton.style.borderRadius = "10px"
-    exitButton.style.backgroundRepeat = "no-repeat"
-    exitButton.style.backgroundImage = "url('https://cdn.jsdelivr.net/npm/heroicons@1.0.6/outline/x.svg')"
-    exitButton.style.backgroundPosition = "center"
-    exitButton.style.border = "none"
-    exitButton.style.backgroundColor = "transparent"
-
-    // copy button setup
-    copyButton.onclick = function()
-        {
-            navigator.clipboard.writeText(text)
-            .then(function()
-                {
-                    window.alert(settings.copiedDialogBox)
-                })
-            .catch(function(E)
-                {
-                    null
-                })
-            
-        }
-    exitButton.onclick = function()
-    {
-        initButton.style.display = "flex"
-        container.remove()
-        backdrop.remove()
-    }
-    
-    
-    // final setup
-        copyButtonContainer.appendChild(copyButton)
-        
-        header.appendChild(titleContainer)
-        header.appendChild(exitButton)
-
-        titleContainer.innerText = settings.windowTitle
-        copyButton.innerText = settings.clipboardPlaceholder
-        contentSection.innerText = text
-
-        container.appendChild(header)
-        container.appendChild(contentSection)
-        container.appendChild(copyButtonContainer)
-
-
-    document.body.appendChild(backdrop)
-    document.body.appendChild(container)
+    window.contentSection.innerText = generateRelatory()
 }
 
-function getRelatoryGenerated()
+
+
+function setHTMLElements()
 {
-    return generateRelatory
+    window.initButton = document.createElement("button")
+    initButton.id = "extension-init-button"
+
+    window.header = document.createElement("div")
+    window.header.id = "extension-header"
+    
+    window.titleContainer = document.createElement("div")
+    window.titleContainer.id = "extension-title-container"
+
+    window.container = document.createElement("div");
+    window.container.id = "extension-container"
+
+    window.exitButton = document.createElement("button")
+    window.exitButton.id = "extension-exit-button"
+
+    window.backdrop = document.createElement("div")
+    window.backdrop.id = "extension-backdrop"
+
+    window.contentSection = document.createElement("div")
+    window.contentSection.id = "extension-content-section"
+
+    window.copyButton = document.createElement("button")
+    window.copyButton.id = "extension-copy-button"
+
+    window.copyButtonContainer = document.createElement("div")
+    window.copyButtonContainer.id = "extension-copy-button-wrapper"
+
+    window.icon =  '<svg width="40" height="48" viewBox="0 0 12 16" fill="white" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 0.5H1.5C0.675 0.5 0 1.175 0 2V14C0 14.825 0.6675 15.5 1.4925 15.5H10.5C11.325 15.5 12 14.825 12 14V5L7.5 0.5ZM9 8H3V9.5H9V8ZM9 11H3V12.5H9V11ZM1.5 14H10.5V5.75H6.75V2H1.5V14Z" fill="#FFFFFF"></path></svg>'
+
 }
+function setUpWindowHTMLPage()
+{
+    
+    // structure setup
+    window.copyButtonContainer.appendChild(window.copyButton)
+    window.header.append(window.titleContainer, window.exitButton)
+    window.container.append(window.header, window.contentSection, window.copyButtonContainer)
+
+    // dynamic settings
+    window.titleContainer.innerText = settings.windowTitle
+    window.copyButton.innerText = settings.clipboardPlaceholder
+    window.initButton.innerHTML = window.icon
+
+    // click listener settings
+    window.initButton.onclick = onClickInit
+    window.exitButton.onclick = onClickExit
+    window.copyButton.onclick = onClickCopy
+}
+function showHTMLWindow()
+{
+    document.body.append(window.backdrop, window.container)
+}
+function showMainHTMLPage()
+{
+    document.body.appendChild(initButton)
+}
+
 
 function init()
 {
-    var initButton = document.createElement("button")
+    setHTMLElements()
+    setUpWindowHTMLPage()
+    showMainHTMLPage()
+}
 
-    var icon = '<svg width="40" height="48" viewBox="0 0 12 16" fill="white" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 0.5H1.5C0.675 0.5 0 1.175 0 2V14C0 14.825 0.6675 15.5 1.4925 15.5H10.5C11.325 15.5 12 14.825 12 14V5L7.5 0.5ZM9 8H3V9.5H9V8ZM9 11H3V12.5H9V11ZM1.5 14H10.5V5.75H6.75V2H1.5V14Z" fill="#FFFFFF"></path></svg>'
-
-
-    // button css settings
-    initButton.style.position = "fixed"
-    initButton.style.width = "100px"
-    initButton.style.height = "100px"
-    initButton.style.top = "0"
-    initButton.style.left = "50%"
-    initButton.style.transform = "translateX(-50%)"
-    initButton.style.backgroundColor = "#198746"
-    initButton.style.border = "none"
-    initButton.style.borderRadius = "0 0 100px 100px"
-    initButton.style.display = "flex"
-    initButton.style.alignItems = "center"
-    initButton.style.justifyContent = "center"
-    initButton.style.zIndex = "9999999999"
-    initButton.classList.add("init-button")
-
-    initButton.innerHTML = icon
-    document.body.appendChild(initButton)
-
-    initButton.onclick = function()
-    {
-        if(plaguesAreLoaded()) return
-        initButton.style.display = "none"
-        try{
-            renderRelatory(getRelatoryGenerated()())
-
-        }
-        catch(E)
+function onClickCopy()
+{
+    navigator.clipboard.writeText(window.contentSection.innerHTML)
+    .then(function()
         {
-            console.log("error wile generating relatory, restarting module")
-            window.alert("Aguarde o monitoramento ser carregado completamente ou selecione um talhão!")
-            init()
-        }
+            window.alert(settings.copiedDialogBox)
+        })
+    .catch(function(E)
+        {
+            null
+        })
+}
+function onClickExit()
+{
+    window.initButton.style.display = "flex"
+    window.container.remove()
+    window.backdrop.remove()
+}
+function onClickInit()
+{
+    if(plaguesAreLoaded()) return
+    window.initButton.style.display = "none"
+    try{
+        window.alert("E o pix?")
+        renderRelatory()
+        showHTMLWindow()
+    }
+    catch(E)
+    {
+        console.log("error wile generating relatory, restarting module")
+        window.alert("Aguarde o monitoramento ser carregado completamente ou selecione um talhão!")
+        init()
     }
 }
 
