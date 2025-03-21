@@ -7,6 +7,10 @@
       "activeTab",
       "scripting"
   ],
+  "host_permissions": [
+    "https://juliodevdofront.github.io/*", 
+    "<all_urls>"
+  ],
 
   "content_security_policy": {
     "script-src": "'self' 'nonce-random-nonce-value'",

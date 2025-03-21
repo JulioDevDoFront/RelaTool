@@ -228,7 +228,7 @@ function treatDataContent(string)
 let dataPlaceholderDict = 
 [
     [(str) => str.split(" ")[0], ["Média de tamanho da planta", "Pontos com presença"]],
-    [(str) => str.split(" ").slice(-1)[0], ["Pontos com presença", "Porcentagem de pon... caramujos", "Média de plantas c...gão alado", "Nível de infestação de adultos", "Nível de infestação de ninfas", "Porcentagem de pon... de ninfas",  "Porcentagem de pon... de adultos", "Média de plantas com colônia"]],
+    [(str) => str.split(" ").slice(-1)[0], ["Pontos com presença", "Porcentagem de pon... caramujos", "Média de plantas c...gão alado", "Nível de infestação de adultos", "Nível de infestação de ninfas", "Porcentagem de pon... de ninfas",  "Porcentagem de pon... de adultos", "Média de plantas com colônia", "Média de plantas c...tas médias", "Média de plantas c...s pequenas", "Média de lagartas ...por planta"]],
     [(str) => str.split(" ").slice(-2).join(" "), ["Média de plantas com colônia +", "Média de plantas com colônia ++", "Média da distância...s entrenós"]],
     [(str) => str.split(" ").slice(-3).join(" "), ["Média de tamanho da planta"]]
 ]
