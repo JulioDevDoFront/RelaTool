@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "RelaTool",
+  "version": "3.0",
+  "description": "Ferramenta automatizada para ajudar com os relatórios diarios de monitoramento [beta]",
+  "permissions": [
+      "activeTab",
+      "scripting"
+  ],
+  "host_permissions": [
+    "https://juliodevdofront.github.io/*", 
+    "<all_urls>"
+  ],
+
+  "content_security_policy": {
+    "script-src": "'self' 'nonce-random-nonce-value'",
+    "object-src": "'self'"
+  },
+
+  "content_scripts": [
+      {
+          "matches": [
+              "https://protector.cropwise.com/*"
+          ],
+          "js": [
+              "content.js"
+          ],
+          "css": [
+              "main.css"
+          ]
+      }
+  ],
+  "action": {
+
+      "default_icon": {
+          "16": "icons/icon16.png",
+          "48": "icons/icon48.png",
+          "128": "icons/icon128.png"
+      }
+  },
+  "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+  }
+}
