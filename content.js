@@ -494,10 +494,23 @@ function showMainHTMLPage()
 {
     document.body.appendChild(initButton)
 }
-
+function loadPageCss()
+{
+    let link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://juliodevdofront.github.io/RelaTool/main.css'; // URL do seu CSS
+    link.onload = function() {
+        console.log("CSS carregado!");
+    };
+    link.onerror = function() {
+        console.error("Falha ao carregar o CSS.");
+    };
+    document.head.appendChild(link);
+}
 
 function init()
 {
+
     setHTMLElements()
     setUpWindowHTMLPage()
     showMainHTMLPage()
@@ -537,7 +550,7 @@ function onClickInit()
         init()
     }
 }
-
+loadPageCss()
 init()
 window.alert("iniciando o programa")
 console.log("Hello, world")
