@@ -540,3 +540,4 @@ function onClickInit()
 
 init()
 window.alert("iniciando o programa")
+console.log("Hello, world")
