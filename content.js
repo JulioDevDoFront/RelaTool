@@ -431,7 +431,8 @@ function generateRelatory()
 
 function renderRelatory()
 {
-    window.contentSection.innerText = generateRelatory()
+    window.contentSection.innerHTML = generateRelatory()
+    
 }
 
 
@@ -518,7 +519,7 @@ function init()
 
 function onClickCopy()
 {
-    navigator.clipboard.writeText(window.contentSection.innerHTML)
+    navigator.clipboard.writeText(window.contentSection.innerText)
     .then(function()
         {
             window.alert(settings.copiedDialogBox)
@@ -539,7 +540,7 @@ function onClickInit()
     if(plaguesAreLoaded()) return
     window.initButton.style.display = "none"
     try{
-        window.alert("E o pix?")
+
         renderRelatory()
         showHTMLWindow()
     }
@@ -552,5 +553,3 @@ function onClickInit()
 }
 loadPageCss()
 init()
-window.alert("iniciando o programa")
-console.log("Hello, world")
