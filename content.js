@@ -431,7 +431,7 @@ function generateRelatory()
 
 function renderRelatory()
 {
-    window.contentSection.innerHTML = generateRelatory()
+    window.contentSection.innerText = generateRelatory().replace(/<br\s*\/?>/g, "\n")
     
 }
 
