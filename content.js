@@ -519,7 +519,7 @@ function init()
 
 function onClickCopy()
 {
-    navigator.clipboard.writeText(window.contentSection.innerText)
+    navigator.clipboard.writeText(window.contentSection.innerHTML.replace(/<br\s*\/?>/g, "\n"))
     .then(function()
         {
             window.alert(settings.copiedDialogBox)
